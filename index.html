@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Raja Repair — Demo Website Service Smartphone</title>
+<meta name="description" content="Demo website profesional untuk Raja Repair. Booking servis, cek status, estimasi harga, galeri, ulasan, dan WhatsApp.">
+<style>
+:root{
+  --blue:#3159d8; --blue2:#19378f; --ink:#101828; --muted:#667085;
+  --bg:#f6f8fc; --card:#fff; --line:#e7eaf0; --green:#16a36a;
+  --shadow:0 18px 50px rgba(16,24,40,.10); --r:22px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+a{text-decoration:none;color:inherit}.wrap{max-width:1160px;margin:auto;padding:0 22px}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:-.5px}
+.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#3e65e8,#19388f);color:white;display:grid;place-items:center;font-size:20px;box-shadow:0 8px 22px rgba(49,89,216,.25)}
+.navlinks{display:flex;gap:22px;font-size:14px;color:#475467}.navlinks a:hover{color:var(--blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:13px;padding:12px 17px;font-weight:800;cursor:pointer;font-size:14px}
+.btn.primary{background:var(--blue);color:#fff;box-shadow:0 10px 25px rgba(49,89,216,.22)}
+.btn.dark{background:#111827;color:#fff}.btn.light{background:#eef2ff;color:#2442a8}
+.btn.green{background:#16a36a;color:#fff}
+.hero{padding:68px 0 48px;background:
+ radial-gradient(circle at 85% 15%,rgba(49,89,216,.14),transparent 30%),
+ linear-gradient(180deg,#fff 0%,#f6f8fc 100%)}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
+.badge{display:inline-flex;gap:8px;align-items:center;background:#edf2ff;color:#2849b8;border:1px solid #d9e1ff;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:800}
+h1{font-size:clamp(38px,5.5vw,68px);line-height:1.02;letter-spacing:-3px;margin:18px 0}
+.grad{background:linear-gradient(90deg,#19378f,#3159d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:18px;color:#475467;max-width:650px}
+.actions{display:flex;flex-wrap:wrap;gap:11px;margin:25px 0}
+.trust{display:flex;flex-wrap:wrap;gap:15px;margin-top:20px;color:#667085;font-size:13px}.trust b{color:#111827}
+.hero-photo{position:relative}.hero-photo img{width:100%;height:540px;object-fit:cover;border-radius:30px;box-shadow:var(--shadow)}
+.float{position:absolute;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px;padding:13px 15px}
+.float.rating{left:-18px;bottom:35px}.float.open{right:-15px;top:28px}
+.stars{color:#f5a623;letter-spacing:1px}
+section{padding:78px 0}.section-head{max-width:760px;margin-bottom:32px}
+.kicker{text-transform:uppercase;letter-spacing:1.5px;color:var(--blue);font-weight:900;font-size:12px}
+h2{font-size:38px;line-height:1.1;letter-spacing:-1.5px;margin:8px 0 10px}.sub{color:var(--muted)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:23px;box-shadow:0 8px 28px rgba(16,24,40,.05)}
+.icon{width:46px;height:46px;border-radius:14px;background:#edf2ff;color:var(--blue);display:grid;place-items:center;font-size:21px;margin-bottom:16px}
+.card h3{margin:0 0 7px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.service{padding:20px;background:#fff;border:1px solid var(--line);border-radius:18px;cursor:pointer;transition:.2s}.service:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cfd8ff}
+.service b{display:block;margin-bottom:4px}.service span{font-size:13px;color:var(--muted)}
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:stretch}
+.darkpanel{background:#0f172a;color:#fff;border-radius:28px;padding:34px;position:relative;overflow:hidden}
+.darkpanel:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(49,89,216,.28);right:-120px;top:-100px}
+.steps{display:grid;gap:14px;margin-top:25px}.step{display:flex;gap:13px;align-items:flex-start}.num{width:30px;height:30px;border-radius:10px;background:#263d88;display:grid;place-items:center;font-weight:900;flex:none}
+.form{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:var(--shadow)}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}
+label{font-size:13px;font-weight:800}.field input,.field select,.field textarea{border:1px solid #dfe3ea;border-radius:12px;padding:12px 13px;font:inherit;outline:none;background:#fff}.field textarea{min-height:100px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:#8da2f2;box-shadow:0 0 0 4px #eef2ff}
+.result{margin-top:14px;padding:14px;border-radius:14px;background:#f0fdf7;border:1px solid #c9f1dd;color:#126a48;display:none}
+.track{display:grid;grid-template-columns:1fr 1fr;gap:18px}.trackbox{background:#fff;border:1px solid var(--line);border-radius:22px;padding:23px}
+.status{display:flex;gap:13px;align-items:center;padding:13px;border-radius:15px;background:#f8fafc;margin-top:14px}.dot{width:11px;height:11px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px #dff7eb}
+.progress{height:8px;background:#edf0f5;border-radius:99px;overflow:hidden;margin:18px 0}.bar{height:100%;width:70%;background:linear-gradient(90deg,#3159d8,#6f89ed)}
+.gallery{display:grid;grid-template-columns:1.3fr .7fr .7fr;grid-auto-rows:210px;gap:14px}.gallery img{width:100%;height:100%;object-fit:cover;border-radius:20px}.gallery img:first-child{grid-row:span 2}
+.review{font-size:14px}.review-top{display:flex;justify-content:space-between;gap:10px}.review small{color:var(--muted)}
+.faq{display:grid;gap:10px;max-width:850px}.faq details{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px 18px}.faq summary{font-weight:800;cursor:pointer}.faq p{color:var(--muted);font-size:14px}
+.cta{background:linear-gradient(135deg,#19378f,#3159d8);color:#fff;border-radius:30px;padding:42px}.cta h2{max-width:680px}.cta p{color:#dbe4ff}.footer{padding:30px 0 55px;color:#667085;font-size:13px}
+.toast{position:fixed;right:20px;bottom:20px;z-index:50;background:#111827;color:#fff;padding:14px 16px;border-radius:14px;box-shadow:var(--shadow);display:none;max-width:330px}
+@media(max-width:900px){.hero-grid,.split,.track{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.service-grid{grid-template-columns:1fr 1fr}.navlinks{display:none}.hero-photo img{height:420px}.float.rating{left:12px}.float.open{right:12px}}
+@media(max-width:600px){section{padding:58px 0}.grid3,.service-grid,.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:160px}.gallery img:first-child{grid-row:span 2}.hero{padding-top:42px}h2{font-size:30px}.actions .btn{width:100%}.hero-photo img{height:360px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><span class="logo">♛</span><span>RAJA REPAIR<small style="display:block;color:#667085;font-weight:700;font-size:10px;letter-spacing:1px">SMARTPHONE SOLUTION</small></span></a>
+    <nav class="navlinks">
+      <a href="#layanan">Layanan</a><a href="#booking">Booking</a><a href="#tracking">Cek Status</a><a href="#galeri">Galeri</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn primary" href="#booking">Booking Servis</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+<div class="wrap hero-grid">
+  <div>
+    <span class="badge">● Terima servis smartphone & iPhone</span>
+    <h1>Servis HP lebih <span class="grad">mudah, jelas, dan meyakinkan.</span></h1>
+    <p class="lead">Website demo untuk mengubah pencarian Google Maps menjadi pelanggan: tampilkan layanan, estimasi, booking, status perbaikan, galeri asli, ulasan, dan tombol WhatsApp dalam satu tempat.</p>
+    <div class="actions">
+      <a class="btn primary" href="#booking">⚡ Buat Booking Servis</a>
+      <a class="btn light" href="#tracking">🔎 Cek Status Perbaikan</a>
+    </div>
+    <div class="trust">
+      <span>⭐ <b>4,9/5</b> dari 654 ulasan</span><span>•</span><span>📍 Cirebon</span><span>•</span><span>🛠️ Teknisi berpengalaman</span>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/foto-1.webp" alt="Teknisi sedang memperbaiki smartphone">
+    <div class="float rating"><div class="stars">★★★★★</div><b>4,9 Google</b><br><small>654 ulasan</small></div>
+    <div class="float open">🟢 <b>Siap menerima servis</b><br><small>Booking online tersedia</small></div>
+  </div>
+</div>
+</section>
+
+<section id="layanan">
+<div class="wrap">
+<div class="section-head"><span class="kicker">Layanan</span><h2>Semua kebutuhan servis ada di satu halaman</h2><p class="sub">Pengunjung tidak perlu chat bolak-balik hanya untuk menanyakan jenis kerusakan dan layanan yang tersedia.</p></div>
+<div class="service-grid">
+  <div class="service" onclick="pickService('Ganti LCD / Layar')">📱 <b>Ganti LCD / Layar</b><span>Retak, pecah, blank, touch bermasalah</span></div>
+  <div class="service" onclick="pickService('Ganti Baterai')">🔋 <b>Ganti Baterai</b><span>Baterai drop, cepat habis, tidak mengisi</span></div>
+  <div class="service" onclick="pickService('Perbaikan Charging')">⚡ <b>Charging</b><span>Port longgar, tidak masuk daya</span></div>
+  <div class="service" onclick="pickService('Kamera')">📷 <b>Kamera</b><span>Kamera blur, error, tidak terbuka</span></div>
+  <div class="service" onclick="pickService('Software')">⚙️ <b>Software</b><span>Bootloop, lemot, error sistem</span></div>
+  <div class="service" onclick="pickService('Speaker / Mic')">🔊 <b>Speaker & Mic</b><span>Suara kecil, mic tidak berfungsi</span></div>
+  <div class="service" onclick="pickService('Tombol / Flex')">🔘 <b>Tombol & Flex</b><span>Power, volume, flex bermasalah</span></div>
+  <div class="service" onclick="pickService('Diagnosa')">🔍 <b>Diagnosa</b><span>Cek kerusakan sebelum perbaikan</span></div>
+</div>
+</div>
+</section>
+
+<section style="background:#fff">
+<div class="wrap">
+<div class="section-head"><span class="kicker">Kenapa website ini menjual</span><h2>Fitur yang langsung terasa manfaatnya untuk owner</h2></div>
+<div class="grid3">
+  <div class="card"><div class="icon">⚡</div><h3>Booking masuk lebih rapi</h3><p>Pelanggan isi nama, nomor, tipe HP, keluhan, dan waktu kedatangan. Data siap diteruskan ke admin/WhatsApp.</p></div>
+  <div class="card"><div class="icon">💬</div><h3>WhatsApp sekali klik</h3><p>Tombol CTA diarahkan ke chat dengan format pesan otomatis sehingga admin tidak mulai dari nol.</p></div>
+  <div class="card"><div class="icon">🔎</div><h3>Cek status servis</h3><p>Pelanggan bisa melihat tahapan: diterima, diagnosa, menunggu persetujuan, dikerjakan, selesai.</p></div>
+  <div class="card"><div class="icon">💰</div><h3>Estimasi harga</h3><p>Form sederhana membantu pelanggan memahami kisaran biaya sebelum datang, tanpa mengunci harga final.</p></div>
+  <div class="card"><div class="icon">📸</div><h3>Portofolio foto asli</h3><p>Foto toko, teknisi, meja kerja, dan hasil pekerjaan membangun trust lebih kuat daripada stok foto.</p></div>
+  <div class="card"><div class="icon">⭐</div><h3>Social proof</h3><p>Rating dan testimoni ditempatkan dekat CTA agar calon pelanggan lebih percaya untuk booking.</p></div>
+</div>
+</div>
+</section>
+
+<section id="booking">
+<div class="wrap split">
+  <div class="darkpanel">
+    <span class="kicker" style="color:#9fb3ff">Booking servis</span>
+    <h2 style="color:#fff">Dari calon pelanggan jadi tiket servis.</h2>
+    <p style="color:#cbd5e1">Contoh alur yang bisa dipakai di versi produksi:</p>
+    <div class="steps">
+      <div class="step"><span class="num">1</span><div><b>Pelanggan isi form</b><div style="color:#94a3b8;font-size:13px">Data perangkat + keluhan.</div></div></div>
+      <div class="step"><span class="num">2</span><div><b>Admin menerima notifikasi</b><div style="color:#94a3b8;font-size:13px">Bisa diarahkan ke WhatsApp/CRM.</div></div></div>
+      <div class="step"><span class="num">3</span><div><b>Teknisi melakukan diagnosa</b><div style="color:#94a3b8;font-size:13px">Harga final dikonfirmasi sebelum pengerjaan.</div></div></div>
+      <div class="step"><span class="num">4</span><div><b>Pelanggan cek progres</b><div style="color:#94a3b8;font-size:13px">Mengurangi pertanyaan “sudah selesai belum?”</div></div></div>
+    </div>
+  </div>
+  <div class="form">
+    <h3 style="margin-top:0">Form Booking Servis</h3>
+    <p class="sub" style="font-size:13px">Demo interaktif — belum terhubung ke database.</p>
+    <div class="formgrid">
+      <div class="field"><label>Nama</label><input id="nama" placeholder="Nama pelanggan"></div>
+      <div class="field"><label>WhatsApp</label><input id="wa" placeholder="08xxxxxxxxxx"></div>
+      <div class="field"><label>Tipe HP</label><input id="hp" placeholder="Contoh: iPhone 13"></div>
+      <div class="field"><label>Layanan</label><select id="layananSelect"><option>Ganti LCD / Layar</option><option>Ganti Baterai</option><option>Perbaikan Charging</option><option>Kamera</option><option>Software</option><option>Diagnosa</option></select></div>
+      <div class="field full"><label>Keluhan</label><textarea id="keluhan" placeholder="Ceritakan masalah HP..."></textarea></div>
+    </div>
+    <button class="btn primary" style="width:100%;margin-top:14px" onclick="booking()">Kirim Booking Demo</button>
+    <div class="result" id="bookingResult"></div>
+  </div>
+</div>
+</section>
+
+<section id="tracking">
+<div class="wrap">
+<div class="section-head"><span class="kicker">Customer experience</span><h2>Cek status servis tanpa harus chat admin</h2><p class="sub">Contoh tampilan tracking. Pada versi produksi, nomor tiket bisa terhubung ke database servis.</p></div>
+<div class="track">
+  <div class="trackbox">
+    <label>Nomor tiket servis</label>
+    <div style="display:flex;gap:10px;margin-top:8px"><input id="ticket" value="RR-240812-013" style="flex:1;border:1px solid #dfe3ea;border-radius:12px;padding:12px"><button class="btn primary" onclick="track()">Cek</button></div>
+    <div id="trackResult"></div>
+  </div>
+  <div class="trackbox">
+    <b>RR-240812-013 · iPhone 13</b>
+    <p class="sub" style="font-size:13px">Keluhan: layar retak + touch bermasalah</p>
+    <div class="progress"><div class="bar"></div></div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:#667085"><span>Diterima</span><span>Diagnosa</span><span>Dikerjakan</span><span>Selesai</span></div>
+    <div class="status"><span class="dot"></span><div><b>Sedang dikerjakan</b><br><small style="color:#667085">Estimasi selesai: hari ini</small></div></div>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="galeri" style="background:#fff">
+<div class="wrap">
+<div class="section-head"><span class="kicker">Foto asli toko</span><h2>Bangun kepercayaan dengan bukti nyata</h2><p class="sub">Foto yang dipakai di demo berasal dari materi yang diberikan: toko, teknisi, meja kerja, dan aktivitas servis.</p></div>
+<div class="gallery">
+  <img src="assets/foto-2.webp" alt="Interior Raja Repair">
+  <img src="assets/foto-3.webp" alt="Teknisi Raja Repair">
+  <img src="assets/foto-4.webp" alt="Area toko">
+  <img src="assets/foto-1.webp" alt="Proses perbaikan smartphone">
+  <img src="assets/foto-5.png" alt="Profil bisnis di Google Maps">
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="section-head"><span class="kicker">Social proof</span><h2>Ulasan yang dekat dengan keputusan beli</h2></div>
+<div class="grid3">
+  <div class="card review"><div class="review-top"><b>⭐⭐⭐⭐⭐</b><small>Google</small></div><p>“Pelayanan ramah dan proses servis dijelaskan dengan jelas.”</p><small>Contoh testimoni — ganti dengan ulasan pelanggan asli.</small></div>
+  <div class="card review"><div class="review-top"><b>⭐⭐⭐⭐⭐</b><small>Google</small></div><p>“Tempatnya rapi, teknisinya komunikatif, dan hasilnya memuaskan.”</p><small>Contoh testimoni — ganti dengan ulasan pelanggan asli.</small></div>
+  <div class="card review"><div class="review-top"><b>⭐⭐⭐⭐⭐</b><small>Google</small></div><p>“Enak karena bisa tanya estimasi dulu sebelum datang.”</p><small>Contoh testimoni — ganti dengan ulasan pelanggan asli.</small></div>
+</div>
+</div>
+</section>
+
+<section id="faq" style="background:#fff">
+<div class="wrap">
+<div class="section-head"><span class="kicker">FAQ</span><h2>Pertanyaan yang biasanya muncul sebelum servis</h2></div>
+<div class="faq">
+<details open><summary>Apakah harga di website adalah harga final?</summary><p>Tidak. Estimasi bisa ditampilkan sebagai kisaran. Harga final sebaiknya dikonfirmasi setelah teknisi melakukan pengecekan.</p></details>
+<details><summary>Apakah bisa booking sebelum datang?</summary><p>Bisa. Form booking dapat dikirim ke admin melalui WhatsApp atau masuk ke dashboard tiket.</p></details>
+<details><summary>Bagaimana pelanggan tahu HP-nya sudah selesai?</summary><p>Versi produksi dapat mengirim notifikasi WhatsApp dan menyediakan halaman cek status berdasarkan nomor tiket.</p></details>
+<details><summary>Apakah website bisa dipasang di domain sendiri?</summary><p>Bisa. Demo ini dibuat sebagai front-end dan dapat dikembangkan ke domain, hosting, database, dashboard admin, dan integrasi WhatsApp.</p></details>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="cta">
+<span class="kicker" style="color:#b9c7ff">Next step</span>
+<h2>Tujuannya bukan sekadar punya website — tapi bikin Google Maps lebih mudah menghasilkan booking.</h2>
+<p>Demo ini bisa dikembangkan menjadi sistem operasional: booking → tiket → diagnosa → approval → pengerjaan → pembayaran → selesai → minta review.</p>
+<div class="actions"><a class="btn" style="background:#fff;color:#19378f" href="#booking">Coba Booking Demo</a><button class="btn" style="background:#0f172a;color:#fff" onclick="waDemo()">💬 Contoh WhatsApp</button></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="footer"><div class="wrap">© 2026 Raja Repair — Demo konsep website. Data harga, testimoni, nomor WhatsApp, alamat, jam buka, dan status servis pada demo dapat diganti dengan data owner.</div></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display='none',3200)}
+function pickService(s){document.getElementById('layananSelect').value=s;document.getElementById('booking').scrollIntoView({behavior:'smooth'});toast('Layanan "'+s+'" dipilih.')}
+function booking(){
+ const n=document.getElementById('nama').value||'Pelanggan';
+ const hp=document.getElementById('hp').value||'Belum diisi';
+ const s=document.getElementById('layananSelect').value;
+ const r=document.getElementById('bookingResult');r.style.display='block';
+ r.innerHTML='<b>✓ Booking demo berhasil dibuat</b><br>Tiket: <b>RR-DEMO-001</b> · '+n+' · '+hp+' · '+s+'<br><small>Versi produksi: kirim data ini ke WhatsApp/admin secara otomatis.</small>';
+ toast('Booking demo berhasil dibuat.');
+}
+function track(){
+ const v=document.getElementById('ticket').value.trim();
+ document.getElementById('trackResult').innerHTML='<div class="status"><span class="dot"></span><div><b>'+ (v||'Tiket') +'</b> — Sedang dikerjakan</div></div>';
+}
+function waDemo(){
+ const msg=encodeURIComponent('Halo Raja Repair, saya mau tanya/booking servis HP. Tipe HP: ... Keluhan: ...');
+ toast('Contoh pesan WhatsApp siap dikirim: '+decodeURIComponent(msg).slice(0,80)+'...');
+}
+</script>
+</body>
+</html>
